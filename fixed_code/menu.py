@@ -6,7 +6,7 @@ import pygame.image
 import pygame.font
 from pygame import Surface
 
-from const import WIN_WIDTH, COLOR_ORANGE, MENU_OPTION, COLOR_WHITE
+from const import WIN_WIDTH, COLOR_ORANGE, MENU_OPTION, COLOR_WHITE, COLOR_LIGHT_YELLOW
 
 
 class Menu:
@@ -17,6 +17,7 @@ class Menu:
 
 
     def run(self, ):
+        menu_option = 0
         pygame.mixer.music.load('./assets/musicforpygame.mp3')
         pygame.mixer.music.play(-1)
         while True:
@@ -26,7 +27,11 @@ class Menu:
 
 
             for i in range(len(MENU_OPTION)):
-                self.menu_text(20, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 200 + 25 * i))
+                if i == menu_option:
+                    self.menu_text(20, MENU_OPTION[i], COLOR_LIGHT_YELLOW, ((WIN_WIDTH / 2), 200 + 25 * i))
+                else:
+                    self.menu_text(20, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 200 + 25 * i))
+
             pygame.display.flip()
 
             #Check for all events
