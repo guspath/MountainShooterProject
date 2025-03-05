@@ -17,7 +17,7 @@ class Menu:
 
 
     def run(self, ):
-        pygame.mixer.music.load('./assets/destination-01.mp3')
+        pygame.mixer.music.load('./assets/musicforpygame.mp3')
         pygame.mixer.music.play(-1)
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
