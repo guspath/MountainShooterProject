@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from const import WIN_WIDTH, ENTITY_SPEED
+from fixed_code.const import ENTITY_SPEED, WIN_WIDTH
 from fixed_code.entity import Entity1
 
 

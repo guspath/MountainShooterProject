@@ -6,7 +6,7 @@ import pygame.image
 import pygame.font
 from pygame import Surface
 
-from const import WIN_WIDTH, COLOR_ORANGE, MENU_OPTION, COLOR_WHITE, COLOR_LIGHT_YELLOW
+from fixed_code.const import WIN_WIDTH, COLOR_ORANGE, MENU_OPTION, COLOR_WHITE, COLOR_LIGHT_YELLOW
 
 
 class Menu:
