@@ -10,9 +10,11 @@ from pygame.locals import Rect
 
 from fixed_code.const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, TIMEOUT_LEVEL, EVENT_TIMEOUT, TIMEOUT_STEP, \
     EVENT_ENEMY, SPAWN_TIME
+from fixed_code.enemy import Enemy
 from fixed_code.entity import Entity1
 from fixed_code.entityFactory import EntityFactory
 from fixed_code.entityMediator import EntityMediator
+from fixed_code.player import Player
 
 
 class Level:
@@ -41,6 +43,10 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+                if isinstance(ent, (Player, Enemy)):
+                    shoot = ent.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -51,7 +57,7 @@ class Level:
                 if event.type == EVENT_TIMEOUT:
                     self.timeout -= TIMEOUT_STEP
             # printed text
-            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_WHITE,(10, 5))
+            self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_WHITE, (10, 5))
             self.level_text(14, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
             self.level_text(14, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
