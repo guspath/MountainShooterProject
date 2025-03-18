@@ -1,8 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import pygame
-
-from const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION
+from fixed_code.const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION
 from fixed_code.level import Level
 from fixed_code.menu import Menu
 
