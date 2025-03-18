@@ -24,7 +24,7 @@ class Level:
         self.name = name
         self.game_mode = game_mode  # MODO DE JOGO
         self.entity_list: list[Entity1] = []
-        self.entity_list.extend(EntityFactory.get_entity('Level1bg'))
+        self.entity_list.extend(EntityFactory.get_entity(self.name + 'bg' ))
         player = EntityFactory.get_entity('Player1')
         self.entity_list.append(player)
         if game_mode in [MENU_OPTION[1], MENU_OPTION[2]]:
@@ -58,6 +58,10 @@ class Level:
                 if event.type == EVENT_ENEMY:
                     choice = random.choice(('Enemy1', 'Enemy2'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
+                if event.type == EVENT_TIMEOUT:
+                    self.timeout -= TIMEOUT_STEP
+                    if self.timeout == 0:
+                        return True
 
             # printed text
             self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', C_WHITE, (10, 5))
@@ -69,7 +73,7 @@ class Level:
 
             EntityMediator.verify_collision(entity_list=self.entity_list)
             EntityMediator.verify_health(entity_list=self.entity_list)
-            pass
+
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont("Lucida Sans Typewriter", size=text_size)
