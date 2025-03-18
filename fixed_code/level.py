@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
 import random
 import sys
 
@@ -17,8 +18,10 @@ from fixed_code.entityMediator import EntityMediator
 from fixed_code.player import Player
 
 
+
 class Level:
     def __init__(self, window, name, game_mode):
+
         self.timeout = TIMEOUT_LEVEL  # 20 segundos
         self.window = window
         self.name = name
@@ -70,6 +73,7 @@ class Level:
             EntityMediator.verify_collision(entity_list=self.entity_list)
             EntityMediator.verify_health(entity_list=self.entity_list)
             pass
+
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont("Lucida Sans Typewriter", size=text_size)
