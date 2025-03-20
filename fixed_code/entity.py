@@ -5,7 +5,6 @@ import pygame.image
 
 from fixed_code.const import ENTITY_HEALTH, ENTITY_DAMAGE, ENTITY_SCORE
 
-
 class Entity1(ABC):
     def __init__(self, name: str, position: tuple):
         self.name = name
@@ -18,5 +17,5 @@ class Entity1(ABC):
         self.last_dmg = 'None'
 
     @abstractmethod
-    def move(self, ):
+    def move(self):
         pass

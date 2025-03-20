@@ -5,7 +5,6 @@ C_WHITE = (255, 255, 255)
 C_YELLOW = (248, 255, 108)
 C_GREEN = (0, 128, 0)
 C_CYAN = (0, 128, 128)
-
 # E
 EVENT_ENEMY = pygame.USEREVENT + 1
 EVENT_TIMEOUT = pygame.USEREVENT + 2
@@ -31,9 +30,7 @@ ENTITY_SPEED = {
     'Enemy1Shot': 3,
     'Enemy2Shot': 3,
 
-
 }
-
 ENTITY_HEALTH = {
     'Level1bg0': 999,
     'Level1bg1': 999,
@@ -126,7 +123,6 @@ PLAYER_KEY_RIGHT = {'Player1': pygame.K_RIGHT,
                     'Player2': pygame.K_d}
 PLAYER_KEY_SHOOT = {'Player1': pygame.K_RCTRL,
                     'Player2': pygame.K_LCTRL}
-
 # S
 SPAWN_TIME = 4000
 

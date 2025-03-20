@@ -34,7 +34,7 @@ class Score:
             if game_mode == MENU_OPTION[2]:
                 if player_score[0] >= player_score[1]:
                     score = player_score[0]
-                    text = 'Enter Player 1 Name (4 characters):'
+                    
                 else:
                     score = player_score[1]
                     text = 'Enter Player 2 Name (4 characters):'

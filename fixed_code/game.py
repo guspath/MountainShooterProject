@@ -7,7 +7,6 @@ from fixed_code.const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION
 from fixed_code.level import Level
 from fixed_code.menu import Menu
 
-
 class Game:
     def __init__(self):
         pygame.init()
@@ -35,4 +34,5 @@ class Game:
                 pygame.quit()  # Close Window
                 quit()  # end pygame
             else:
-                pass
+                pygame.quit()
+                quit()
